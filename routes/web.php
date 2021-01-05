@@ -11,7 +11,10 @@
 |
 */
 
+Auth::routes();
+
 Route::get('/','HomeController@index')->name('admin.home');
 
+#Create Orders
+Route::get('/create_orders','OrderController@create_orders')->name('admin.invoice.create_orders');
 
-Route::get('/create_orders','OrderController@create_orders')->name('admin.invoice.create_orders');#Create Orders
