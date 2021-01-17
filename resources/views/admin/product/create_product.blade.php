@@ -5,6 +5,8 @@
 @section('main-content')
 
 <div class="product_container p-4">
+    <form class="kt-form" action="{{ route('admin.invoice.add_product') }}" method="POST" enctype="multipart/form-data" id="add_bikeForm">
+    {{ csrf_field() }}
     <div class="Polaris-TextContainer">
     <h2 class="proudct_heading"><svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M19 9H3.661l5.997-5.246a1 1 0 00-1.316-1.506l-8 7c-.008.007-.011.018-.019.025a.975.975 0 00-.177.24c-.018.03-.045.054-.059.087a.975.975 0 000 .802c.014.033.041.057.059.088.05.087.104.17.177.239.008.007.011.018.019.025l8 7a.996.996 0 001.411-.095 1 1 0 00-.095-1.411L3.661 11H19a1 1 0 000-2z" fill="#5C5F62"/></svg> Add Products</h2>
     </div>
@@ -338,29 +340,10 @@
     <div class="col-md-6 col-sm-6 col-xs-6">Margin<div>-</div></div>
     <div class="col-md-6 col-sm-6 col-xs-6">Profit<div>-</div></div>
     </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     </div>
     </div>
-    
-    
-    
-    
     <div class="row">
     <div class="col-md-4 col-sm-12 col-xs-12" style="padding-left: 30px"><label>Customer Information</label></div>
-    
-    
     <div class="col-md-8 col-sm-12 col-xs-12">
     <div class="prdt_item5">
     <div class="Polaris-Labelled__LabelWrapper">
@@ -400,11 +383,8 @@
     <div class="col-md-12 col-sm-12 col-xs-12 prodct_btns">
     <div><button class="Polaris-Button prdct_discard" type="button"><span class="Polaris-Button__Content"><span class="Polaris-Button__Text">Discard</span></span></button><button class="Polaris-Button prdct_save" type="button"><span class="Polaris-Button__Content"><span class="Polaris-Button__Text">Save</span></span></button></div>
     </div>
-    
-    
-    </div>
-
-
+    </form>
+</div>
 @endsection
 @section('foot')
 

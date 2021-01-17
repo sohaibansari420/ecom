@@ -6,6 +6,8 @@
 
 
 <div class="orderpage_main">
+  <form class="kt-form" action="{{ route('admin.invoice.add_order') }}" method="POST" enctype="multipart/form-data" id="add_bikeForm">
+    {{ csrf_field() }}  
     <div class="col-md-12 col-sm-12 col-xs-12 orderpage_heading">
     <div class="col-md-6 col-sm-6 col-xs-6 orderpage_innerheading">
     <div class="Polaris-TextContainer">
@@ -183,7 +185,7 @@
       </div>
     </div>
     </div>
-    </body>
+  </form>
     </div>
 
 @endsection
