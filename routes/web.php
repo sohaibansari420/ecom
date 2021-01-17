@@ -11,6 +11,8 @@
 |
 */
 
+Auth::routes();
+
 Route::get('/','HomeController@index')->name('admin.home');
 
 Route::get('/create_product','ProductController@create_product')->name('admin.invoice.create_product');#Create Products
