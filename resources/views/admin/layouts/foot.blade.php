@@ -30,6 +30,7 @@
         }
     };
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="assets/plugins/global/plugins.bundle.js" type="text/javascript"></script>
 <script src="assets/js/scripts.bundle.js" type="text/javascript"></script>
 
@@ -47,6 +48,5 @@
 <script src="{{ asset('js/papaparse.js') }}" type="text/javascript"></script>
 
 <script>
-   
     
 </script>

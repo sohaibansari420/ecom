@@ -387,5 +387,10 @@
 </div>
 @endsection
 @section('foot')
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    function myFunction() {
+      alert("Hello! I am an alert box!"); 
+    }
+</script>
 @endsection
