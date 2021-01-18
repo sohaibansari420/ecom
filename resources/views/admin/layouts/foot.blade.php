@@ -42,3 +42,11 @@
 
 <!--begin::Page Scripts(used by this page) -->
 <script src="assets/js/pages/dashboard.js" type="text/javascript"></script>
+
+<script src="https://transloadit.edgly.net/releases/uppy/v1.3.0/uppy.min.js"></script>
+<script src="{{ asset('js/papaparse.js') }}" type="text/javascript"></script>
+
+<script>
+   
+    
+</script>

@@ -34,6 +34,7 @@ rel="stylesheet"
 href="https://unpkg.com/@shopify/polaris@5.12.0/dist/styles.css"
 />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link href="https://transloadit.edgly.net/releases/uppy/v1.3.0/uppy.min.css" rel="stylesheet">
 
 {{-- Product --}}
 <style type="text/css">
