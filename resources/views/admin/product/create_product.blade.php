@@ -1,6 +1,196 @@
 @extends('admin.layouts.app')
 @section('head')
 
+
+<style type="text/css">
+    .product_container
+    {
+    background-color: #f4f4f4;
+    }
+    .proudct_heading
+    {
+    font-size: 20px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    }
+    .proudct_heading svg
+    {
+    width: 46px;
+    height: 32px;
+    fill: black;
+    border: 1px solid #000;
+    padding: 5px 11px;
+    border-radius: 4px;
+    margin-right: 18px;
+    cursor: pointer;
+    }
+    .proudct_heading svg path
+    {
+    fill: #000;
+    }
+    .prdt_item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    }
+    .prdct_dec_scnd svg
+    {
+    width: 75px;
+    height: auto;
+    }
+    .prdct_dec_scnd .upld_btn
+    {
+    margin-top: 0px;
+    }
+    .prdct_dec_scnd .upld_btn .Polaris-DropZone-FileUpload__Button
+    {
+    border: 1px solid #000;
+    background: unset !important;
+    color: #000;
+    font-weight: bold;
+    padding: 10px 10px;
+    min-height: 27px;
+    height: 27px; 
+    }
+    .prdct_scnd_inner
+    {
+    background-color: #fff;
+    padding: 45px 18px;
+    padding-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    }
+    .prdct_media
+    {
+    padding: 0px;
+    padding-bottom: 15px;
+    }
+    .prdt_item label , .prdt_item3 label
+    {
+    margin-bottom: 0px;
+    }
+    .prdt_item3 {
+    margin-bottom: 15px;
+    display: flex;
+    }
+    .prdt_item3 .Polaris-Label__Text , .product_container .Polaris-Labelled__LabelWrapper .Polaris-Label__Text
+    {
+    margin-bottom: 0;
+    }
+    .prdouct__variants
+    {
+        margin-bottom: 25px;
+      margin-top: 25px;
+    }
+    .prdct_variant .prdct_color , .prdct_variant .prdct_size
+    {
+        color: #a0a1e5;
+      padding: 0px;
+      font-weight: bold;
+    }
+    .prdct_variant .prdct_size
+    {
+    text-align: right;
+    }
+    .prdct_hr
+    {
+    margin-top: 35px;
+    margin-bottom: 30px;
+    border: 0;
+    border-top: 1px solid #d2d0d0;
+    }
+    .prdt_item4 , .prdt_item5
+    {
+    margin-bottom: 15px;
+    }
+    .btn--location
+    { 
+    text-align: right;
+    padding: 1.2rem 2rem;
+    }
+    .prdt_item .form-control , .prdt_item5 .form-control
+    {
+    color: #999898;
+    }
+    .prodct_btns
+    {
+    text-align: right;
+    margin-top: 20px;
+    }
+    .product_prfit_margin
+    {
+        margin-top: 20px;
+    }
+    .product_prfit_margin div
+    {
+    padding: 0px;
+    font-weight:bold;
+    }
+    .prodct_weight
+    {
+        display: flex;
+    }
+    .prodct_weight .form-control
+    {
+    width: 83px;
+        min-height: 36px;
+        border-left: 0px;
+        border-radius: 0px;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+            font-weight: bold;
+    }
+    .prodct_weight .Polaris-Connected
+    {
+          width: 100%;
+    }
+    .prodct_weight .Polaris-TextField__Backdrop
+    {
+         border-top-left-radius: 4px !important;
+        border-bottom-left-radius: 4px !important;
+        border-radius: 0px;
+    }
+    .prdct_discard
+    {
+    border: 1px solid #000;
+    background: transparent;
+    color: #000;
+    font-weight: bold;
+    min-height: 20px;
+    height: 30px;
+    padding: 12px;
+    margin-right: 45px;
+    }
+    .prdct_discard:hover
+    {
+    border: 1px solid #000;
+    background: transparent;
+    }
+    .prdct_discard .Polaris-Button__Text
+    {
+    font-weight: bold;
+      letter-spacing: -0.7px;
+    }
+    .prdct_save
+    {
+    background: green;
+    color: #fff;
+    font-weight: bold;
+    min-height: 20px;
+    height: 30px;
+    padding: 12px;
+    border: 1px solid green;
+    }
+    .prdct_save:hover
+    {
+    background: green;
+      border-color: green;
+    }
+    </style>
+
 @endsection
 @section('main-content')
 
@@ -349,7 +539,7 @@
     <div class="Polaris-Labelled__LabelWrapper">
     <div class="Polaris-Label"><label id="PolarisTextField2Label" for="PolarisTextField2" class="Polaris-Label__Text">Country/ Regionof origin</label></div>
     </div>
-    <select class="form-control" name="residence">
+    <select class="form-control" name="country">
     <option>Country/ Regionof origin</option>
     <option>Country/ Regionof origin</option>
     <option>Country/ Regionof origin</option>

@@ -1,6 +1,177 @@
 @extends('admin.layouts.app')
 @section('head')
 
+
+<style type="text/css">
+  .orderpage_heading
+  {
+    display: flex;
+    align-items: center;
+        margin-bottom: 20px;
+  }
+  .orderpage_innerheading svg {
+    width: 46px;
+    height: 32px;
+    fill: black;
+    border: 1px solid #000;
+    padding: 5px 11px;
+    border-radius: 4px;
+    margin-right: 18px;
+    cursor: pointer;
+  }
+  .orderpage_innerheading .ordertext_heading
+  {
+    display: flex;
+    align-items: center;
+  }
+  .orderpage_btns
+  {
+  text-align: right;
+  }
+  .orderpage_discard {
+    border: 1px solid #000;
+    background: transparent;
+    color: #000;
+    font-weight: bold;
+    min-height: 20px;
+    height: 30px;
+    padding: 12px;
+    margin-right: 20px;
+  }
+  .orderpage_save {
+    background: green;
+    color: #fff;
+    font-weight: bold;
+    min-height: 20px;
+    height: 30px;
+    padding: 12px;
+    border: 1px solid green;
+  }
+  .orderpage_details
+  {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 20px;
+          font-weight: bold;
+      font-size: 15px;
+  }
+  .orderpage_orderr
+  {
+    padding: 0px;
+  }
+  .orderpage_orderr_add
+  {
+    text-align: right;
+        color: #a0a1e5;
+  }
+  .orderpage_create_customer
+  {
+  
+  }
+  .orderpage_rightsection .Polaris-Filters
+  {
+    display: flex;
+  }
+  .orderpage_rightsection .Polaris-Filters-ConnectedFilterControl__Wrapper
+  {
+        flex-grow: 1;
+            margin-right: 20px;
+  }
+  .orderpage_prices span , .orderpage_total_prices span
+  {
+      display: block;
+    margin-bottom: 23px;
+    text-align: right;
+  }
+  .orderpage_prices span:first-child , .orderpage_prices span:nth-of-type(4) , .orderpage_prices span:nth-of-type(5)
+  {
+      color: #a0a1e5;
+  }
+  .orderpage_invoice_main , .orderpage_invoice_mian
+  {
+        border-top: 1px solid #ddd;
+      padding: 35px 0px;
+  }
+  .orderpage_invoice
+  {
+        display: flex;
+      align-items: center;
+          font-weight: bold;
+              padding: 0px;
+  }
+  .orderpage_invoice svg
+  {
+      width: 34px;
+    margin-right: 30px;
+  }
+  
+  .orderpage_email_invoice_btn
+  {
+    padding: 0px;
+        text-align: right;
+  }
+  .orderpage_btns_grp
+  {
+        text-align: right;
+        padding: 0px;
+  }
+  .orderpage_btns_grp button:nth-of-type(2)
+  {
+      margin: 0px 15px;
+  }
+  .orderpage_create_a_customer
+  {
+       display: inline-block;
+      width: 100%;
+      padding: 30px 5px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-bottom: 30px;
+  }
+  .orderpage_rightsection
+  {
+        padding-left: 0px;
+      padding-right: 0px;
+          margin-top: 30px;
+  }
+  .orderpage_rightsection .Polaris-Button__Content
+  {
+        font-weight: bold;
+  }
+  .orderpage_find_or_create_a_customer
+  {
+        margin-bottom: 20px;
+        font-weight: bold;
+  }
+  .orderpage_notes , .orderpage_discount
+  {
+        padding: 0px;
+  }
+  .orderpage_innertag
+  {
+    font-weight: bold;
+  }
+  .orderpage_tags
+  {
+   display: inline-block;
+      border: 1px solid #ddd;
+      padding: 30px 5px;
+      width: 100%;
+      border-radius: 4px;
+  }
+  .orderpage_viewalltags
+  {
+        text-align: right;
+        color: #a0a1e5;
+  }
+  .orderpage_taags
+  {
+        margin-top: 20px;
+  }
+</style>
+
 @endsection
 @section('main-content')
 

@@ -1,6 +1,164 @@
 @extends('admin.layouts.app')
 @section('head')
 
+
+<style type="text/css">
+  .order_heading
+  {
+  font-size: 20px;
+  font-weight: bold;
+  }
+  .Polaris-Button__Text
+  {
+  font-size: 15px;
+  letter-spacing: 0px;
+  line-height: 24px;
+  color: #4f555c;
+  }
+  input#PolarisTextField14
+  {
+  line-height: 28px;
+  }
+  input#PolarisTextField14::placeholder
+  {
+  font-size: 15px;
+  letter-spacing: 0px;
+  line-height: 24px;
+  }
+  .Polaris-DataTable__ScrollContainer
+  {
+  width: 100%;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+  max-width: 97.5%;
+  margin: auto;
+  border-radius: 4px;
+  }
+  .Polaris-DataTable__Table tbody
+  {
+  table-layout: fixed;
+  width: 100%;
+  white-space: nowrap;
+  
+  }
+  .Polaris-DataTable__Table .custom_header .Polaris-DataTable__Cell
+  {
+  font-size: 14px;
+  letter-spacing: 0px;
+  color: #363553;
+  font-weight: bold;
+  }
+  .Polaris-DataTable__Table .Polaris-DataTable__Cell--numeric {
+  text-align: left;
+  }
+  .Polaris-DataTable__Table .Polaris-DataTable__TableRow .Polaris-DataTable__Cell
+  {
+  color: #000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 400;
+  }
+  .Polaris-DataTable__Table .custom_check
+  {
+  width: 20px;
+  padding-right: 6px;
+  
+  }
+  .custom_fullfiled , .custom_deliverd
+  {
+  background-color: #fc5d5d;
+  padding: 4px 16px;
+  border-radius: 20px;
+  color: #fff;
+  }
+  .Polaris-Card .custom_edit 
+  {
+  margin: 0px 15px;
+  }
+  .order_batch
+  {
+  margin-left: 20px;
+  }
+  .Polaris-Select__Content
+  {
+  width: 100px;
+  margin-left: 20px;
+  }
+  .Polaris-Card__Section .order_batch .form-control
+  {
+  padding: 10px 20px !important;
+  border-right: 0px !important;
+  border: 1px solid #ccc;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  font-weight: bold;
+  color: #a1a1a1;
+  }
+  .order_date .form-control
+  {
+  border-left: 0px !important;
+  padding: 10px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  }
+  .order_batch .form-control , .order_status .form-control , .order_date .form-control
+  {
+  padding: 10px !important;
+  border-color: #ccc;
+  font-weight: bold;
+  padding: 8px 15px;
+  }
+  .order_btns , .order_nav
+  {
+  display: flex;
+  align-items: center;
+    padding: 2rem;
+  }
+  .order_inner_btns
+  {
+    flex-grow: 1;
+  }
+  .order_childer_btns
+  {
+  text-align: right;
+  }
+  .order_inner_btns .order_expoert
+  {
+    background: #fff;
+        border: 0px;
+    box-shadow: unset;
+        margin-right: 20px;
+  }
+  .order_inner_btns .order_expoert .Polaris-Button__Text
+  {
+        font-weight: bold;
+  }
+  .order_inner_btns .order_create
+  {
+        border: 1px solid green;
+      background: green;
+      color: #fff;
+  }
+  .order_create .Polaris-Button__Content .Polaris-Button__Text
+  {
+    color: #fff;
+  }
+  .order_create .Polaris-Button__Text
+  {
+    color: #fff;
+  }
+  .order_nav div:first-child .order_heading
+  {
+  padding-left: 0px;
+  }
+  .order_nav div .order_heading
+  {
+  padding: 0px 20px;
+  }
+</style>
+
+
 @endsection
 @section('main-content')
 
