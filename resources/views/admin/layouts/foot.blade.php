@@ -43,10 +43,35 @@
 
 <!--begin::Page Scripts(used by this page) -->
 <script src="assets/js/pages/dashboard.js" type="text/javascript"></script>
-
+<link href="https://transloadit.edgly.net/releases/uppy/v1.3.0/uppy.min.css" rel="stylesheet">
 <script src="https://transloadit.edgly.net/releases/uppy/v1.3.0/uppy.min.js"></script>
 <script src="{{ asset('js/papaparse.js') }}" type="text/javascript"></script>
 
+{{-- uppy --}}
 <script>
-    
+    // var uppy = Uppy.Core({
+    //     id: 'uppy',
+    //     debug: true,
+    //     autoProceed: false,
+    //     allowMultipleUploads: false,
+    //     restrictions: {
+    //         allowedFileTypes: ['.csv']
+    //     }
+    // });
+    // uppy.use(Uppy.DragDrop, {
+    //     target: '.UppyDragDrop',
+    // });
+    // uppy.on('restriction-failed', (file, error) => {
+    //     alert(error);
+    // }).on('file-added', (file) => {
+    //     console.log(file);
+    //     var _fileName = file.name;
+    //     $('.uppy_result').html('<span>' + _fileName + '</span>');
+    // });
+    $('.product_add_input_file').on('click',function(){
+        $(".product_file_input").click();
+    });
+    $('.product_file_input').change(function() {
+        $('.product_input_file_name').text($('.product_file_input')[0].files[0].name);
+    });
 </script>

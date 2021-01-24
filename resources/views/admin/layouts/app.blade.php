@@ -16,6 +16,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- begin::Head -->
 	@include('admin.layouts.head')
+	@yield('head')
 
 	<!-- end::Head -->
 
@@ -68,6 +69,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<!-- begin::Global Config(global config for global JS sciprts) -->
 		@include('admin.layouts.foot')
+		@yield('foot')
 
 		
 	</body>

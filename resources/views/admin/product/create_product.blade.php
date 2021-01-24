@@ -18,7 +18,7 @@
     <div class="">
     <div class="Polaris-Connected">
     <div class="Polaris-Connected__Item Polaris-Connected__Item--primary">
-    <div class="Polaris-TextField Polaris-TextField--hasValue"><input name="" id="PolarisTextField2" class="Polaris-TextField__Input" aria-labelledby="PolarisTextField2Label" aria-invalid="false" aria-multiline="false" value="" placeholder="Product Title">
+    <div class="Polaris-TextField Polaris-TextField--hasValue"><input name="p_tiltle" id="PolarisTextField2" class="Polaris-TextField__Input" aria-labelledby="PolarisTextField2Label" aria-invalid="false" aria-multiline="false" value="" placeholder="Product Title">
     <div class="Polaris-TextField__Backdrop"></div>
     </div>
     </div>
@@ -32,7 +32,7 @@
     <div class="prdt_item">
     <div class="col-md-6 col-sm-6 col-xs-6"><label>Brand</label></div>
     <div class="col-md-6 col-sm-6 col-xs-6">
-    <select class="form-control" name="">
+    <select class="form-control" name="brand">
     <option>Brand</option>
     <option>Brands</option>
     <option>Branded</option>
@@ -46,7 +46,7 @@
     <div class="">
     <div class="Polaris-Connected">
     <div class="Polaris-Connected__Item Polaris-Connected__Item--primary">
-    <div class="Polaris-TextField Polaris-TextField--hasValue"><input name="" id="PolarisTextField2" class="Polaris-TextField__Input" aria-labelledby="PolarisTextField2Label" aria-invalid="false" aria-multiline="false" value="" placeholder="Sub-category">
+    <div class="Polaris-TextField Polaris-TextField--hasValue"><input name="sub_category" id="PolarisTextField2" class="Polaris-TextField__Input" aria-labelledby="PolarisTextField2Label" aria-invalid="false" aria-multiline="false" value="" placeholder="Sub-category">
     <div class="Polaris-TextField__Backdrop"></div>
     </div>
     </div>
@@ -63,7 +63,7 @@
     <div class="">
     <div class="Polaris-Connected">
     <div class="Polaris-Connected__Item Polaris-Connected__Item--primary">
-    <div class="Polaris-TextField Polaris-TextField--hasValue"><input name="" id="PolarisTextField2" class="Polaris-TextField__Input" aria-labelledby="PolarisTextField2Label" aria-invalid="false" aria-multiline="false" value="" placeholder="Category">
+    <div class="Polaris-TextField Polaris-TextField--hasValue"><input name="category" id="PolarisTextField2" class="Polaris-TextField__Input" aria-labelledby="PolarisTextField2Label" aria-invalid="false" aria-multiline="false" value="" placeholder="Category">
     <div class="Polaris-TextField__Backdrop"></div>
     </div>
     </div>
@@ -80,7 +80,7 @@
     <div class="">
     <div class="Polaris-Connected">
     <div class="Polaris-Connected__Item Polaris-Connected__Item--primary">
-    <div class="Polaris-TextField Polaris-TextField--hasValue"><input name="" id="PolarisTextField2" class="Polaris-TextField__Input" aria-labelledby="PolarisTextField2Label" aria-invalid="false" aria-multiline="false" value="" placeholder="box/pcs">
+    <div class="Polaris-TextField Polaris-TextField--hasValue"><input name="unit" id="PolarisTextField2" class="Polaris-TextField__Input" aria-labelledby="PolarisTextField2Label" aria-invalid="false" aria-multiline="false" value="" placeholder="box/pcs">
     <div class="Polaris-TextField__Backdrop"></div>
     </div>
     </div>
@@ -94,7 +94,7 @@
     <div class="prdt_item">
     <div class="col-md-6 col-sm-6 col-xs-6"></div>
     <div class="col-md-6 col-sm-6 col-xs-6">
-    <div style="--top-bar-background:#00848e; --top-bar-background-lighter:#1d9ba4; --top-bar-color:#f9fafb; --p-frame-offset:0px;"><label class="Polaris-Choice" for="PolarisCheckbox2"><span class="Polaris-Choice__Control"><span class="Polaris-Checkbox"><input name="" id="PolarisCheckbox2" type="checkbox" class="Polaris-Checkbox__Input" aria-invalid="false" role="checkbox" aria-checked="false" value=""><span class="Polaris-Checkbox__Backdrop"></span><span class="Polaris-Checkbox__Icon"><span class="Polaris-Icon"><svg viewBox="0 0 20 20" class="Polaris-Icon__Svg" focusable="false" aria-hidden="true">
+    <div style="--top-bar-background:#00848e; --top-bar-background-lighter:#1d9ba4; --top-bar-color:#f9fafb; --p-frame-offset:0px;"><label class="Polaris-Choice" for="PolarisCheckbox2"><span class="Polaris-Choice__Control"><span class="Polaris-Checkbox"><input name="company_adress" id="PolarisCheckbox2" type="checkbox" class="Polaris-Checkbox__Input" aria-invalid="false" role="checkbox" aria-checked="false" value=""><span class="Polaris-Checkbox__Backdrop"></span><span class="Polaris-Checkbox__Icon"><span class="Polaris-Icon"><svg viewBox="0 0 20 20" class="Polaris-Icon__Svg" focusable="false" aria-hidden="true">
     <path d="M8.315 13.859l-3.182-3.417a.506.506 0 0 1 0-.684l.643-.683a.437.437 0 0 1 .642 0l2.22 2.393 4.942-5.327a.436.436 0 0 1 .643 0l.643.684a.504.504 0 0 1 0 .683l-5.91 6.35a.437.437 0 0 1-.642 0"></path>
     </svg></span></span></span></span><span class="Polaris-Choice__Label">Copy address from company information</span></label>
     <div id="PolarisPortalsContainer"></div>
@@ -113,7 +113,7 @@
     </div>
     <div class="Polaris-DropZone Polaris-DropZone--hasOutline Polaris-DropZone--sizeExtraLarge" aria-disabled="false">
     <div class="Polaris-DropZone__Container">
-    <div class="Polaris-DropZone-FileUpload">
+    <div class="Polaris-DropZone-FileUpload ">
     <div class="Polaris-Stack Polaris-Stack--vertical">
     <div class="Polaris-Stack__Item"><?xml version="1.0" encoding="iso-8859-1"?>
     <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
@@ -167,12 +167,12 @@
     </svg>
     </div>
     <div class="Polaris-Stack__Item upld_btn">
-    <div class="Polaris-DropZone-FileUpload__Button">Add file</div>
+    <div class="Polaris-DropZone-FileUpload__Button product_add_input_file">Add file</div>
     </div>
-    <div class="Polaris-Stack__Item"><span class="Polaris-TextStyle--variationSubdued">or drop files to upload</span></div>
+    <div class="Polaris-Stack__Item"><span class="Polaris-TextStyle--variationSubdued product_input_file_name">or drop files to upload</span></div>
     </div>
     </div>
-    </div><span class="Polaris-VisuallyHidden"><input name="" class="form-control-file" id="PolarisDropZone2" type="file" multiple="" autocomplete="off"></span>
+    </div><span class="Polaris-VisuallyHidden"><input name="p_file" class="form-control-file product_file_input" id="PolarisDropZone2" type="file" multiple="" autocomplete="off"></span>
     </div>
     </div>
     <div id="PolarisPortalsContainer UppyDragDrop"></div>
@@ -196,7 +196,7 @@
     </div>
     <div class="Polaris-Connected">
     <div class="Polaris-Connected__Item Polaris-Connected__Item--primary">
-    <div class="Polaris-TextField Polaris-TextField--hasValue"><input name="" id="PolarisTextField2" class="Polaris-TextField__Input" aria-labelledby="PolarisTextField2Label" aria-invalid="false" aria-multiline="false" value="" placeholder="SKU (Stock keeping Unit)">
+    <div class="Polaris-TextField Polaris-TextField--hasValue"><input name="sku" id="PolarisTextField2" class="Polaris-TextField__Input" aria-labelledby="PolarisTextField2Label" aria-invalid="false" aria-multiline="false" value="" placeholder="SKU (Stock keeping Unit)">
     <div class="Polaris-TextField__Backdrop"></div>
     </div>
     </div>
@@ -214,7 +214,7 @@
     </div>
     <div class="Polaris-Connected">
     <div class="Polaris-Connected__Item Polaris-Connected__Item--primary">
-    <div class="Polaris-TextField Polaris-TextField--hasValue"><input name="" id="PolarisTextField2" class="Polaris-TextField__Input" aria-labelledby="PolarisTextField2Label" aria-invalid="false" aria-multiline="false" value="" placeholder="0,0">
+    <div class="Polaris-TextField Polaris-TextField--hasValue"><input name="dimension" id="PolarisTextField2" class="Polaris-TextField__Input" aria-labelledby="PolarisTextField2Label" aria-invalid="false" aria-multiline="false" value="" placeholder="0,0">
     <div class="Polaris-TextField__Backdrop"></div>
     </div>
     </div>
@@ -233,7 +233,7 @@
     </div>
     <div class="Polaris-Connected">
     <div class="Polaris-Connected__Item Polaris-Connected__Item--primary">
-    <div class="Polaris-TextField Polaris-TextField--hasValue"><input name="" id="PolarisTextField2" class="Polaris-TextField__Input" aria-labelledby="PolarisTextField2Label" aria-invalid="false" aria-multiline="false" value="" placeholder="HKD">
+    <div class="Polaris-TextField Polaris-TextField--hasValue"><input name="price" id="PolarisTextField2" class="Polaris-TextField__Input" aria-labelledby="PolarisTextField2Label" aria-invalid="false" aria-multiline="false" value="" placeholder="HKD">
     <div class="Polaris-TextField__Backdrop"></div>
     </div>
     </div>
@@ -252,7 +252,7 @@
     </div>
     <div class="Polaris-Connected">
     <div class="Polaris-Connected__Item Polaris-Connected__Item--primary">
-    <div class="Polaris-TextField Polaris-TextField--hasValue"><input name="" id="PolarisTextField2" class="Polaris-TextField__Input" aria-labelledby="PolarisTextField2Label" aria-invalid="false" aria-multiline="false" value="" placeholder="HKD">
+    <div class="Polaris-TextField Polaris-TextField--hasValue"><input name="cost" id="PolarisTextField2" class="Polaris-TextField__Input" aria-labelledby="PolarisTextField2Label" aria-invalid="false" aria-multiline="false" value="" placeholder="HKD">
     <div class="Polaris-TextField__Backdrop"></div>
     </div>
     </div>
@@ -278,7 +278,7 @@
     </div>
     <div class="Polaris-Connected">
     <div class="Polaris-Connected__Item Polaris-Connected__Item--primary">
-    <div class="Polaris-TextField Polaris-TextField--hasValue"><input name="" id="PolarisTextField2" class="Polaris-TextField__Input" aria-labelledby="PolarisTextField2Label" aria-invalid="false" aria-multiline="false" value="" placeholder="0">
+    <div class="Polaris-TextField Polaris-TextField--hasValue"><input name="inventory_available" id="PolarisTextField2" class="Polaris-TextField__Input" aria-labelledby="PolarisTextField2Label" aria-invalid="false" aria-multiline="false" value="" placeholder="0">
     <div class="Polaris-TextField__Backdrop"></div>
     </div>
     </div>
@@ -296,7 +296,7 @@
     </div>
     <div class="Polaris-Connected">
     <div class="Polaris-Connected__Item Polaris-Connected__Item--primary">
-    <div class="Polaris-TextField Polaris-TextField--hasValue"><input name="" id="PolarisTextField2" class="Polaris-TextField__Input" aria-labelledby="PolarisTextField2Label" aria-invalid="false" aria-multiline="false" value="" placeholder="Barcode (ISBN, GTIN, etc)">
+    <div class="Polaris-TextField Polaris-TextField--hasValue"><input name="barcode" id="PolarisTextField2" class="Polaris-TextField__Input" aria-labelledby="PolarisTextField2Label" aria-invalid="false" aria-multiline="false" value="" placeholder="Barcode (ISBN, GTIN, etc)">
     <div class="Polaris-TextField__Backdrop"></div>
     </div>
     </div>
@@ -310,12 +310,12 @@
     <div class="prodct_weight">
     <div class="Polaris-Connected">
     <div class="Polaris-Connected__Item Polaris-Connected__Item--primary">
-    <div class="Polaris-TextField Polaris-TextField--hasValue"><input name="" id="PolarisTextField2" class="Polaris-TextField__Input" aria-labelledby="PolarisTextField2Label" aria-invalid="false" aria-multiline="false" value="" placeholder="0, 0">
+    <div class="Polaris-TextField Polaris-TextField--hasValue"><input name="weight" id="PolarisTextField2" class="Polaris-TextField__Input" aria-labelledby="PolarisTextField2Label" aria-invalid="false" aria-multiline="false" value="" placeholder="0, 0">
     <div class="Polaris-TextField__Backdrop"></div>
     </div>
     </div>
     </div>
-    <select class="form-control" name="">
+    <select class="form-control" name="weight_measure">
     <option>Kg</option>
     <option>kg</option>
     <option>kg</option>
@@ -329,7 +329,7 @@
     </div>
     <div class="Polaris-Connected">
     <div class="Polaris-Connected__Item Polaris-Connected__Item--primary">
-    <div class="Polaris-TextField Polaris-TextField--hasValue"><input name="" id="PolarisTextField2" class="Polaris-TextField__Input" aria-labelledby="PolarisTextField2Label" aria-invalid="false" aria-multiline="false" value="" placeholder="HKD">
+    <div class="Polaris-TextField Polaris-TextField--hasValue"><input name="prmotion_price" id="PolarisTextField2" class="Polaris-TextField__Input" aria-labelledby="PolarisTextField2Label" aria-invalid="false" aria-multiline="false" value="" placeholder="HKD">
     <div class="Polaris-TextField__Backdrop"></div>
     </div>
     </div>
@@ -349,7 +349,7 @@
     <div class="Polaris-Labelled__LabelWrapper">
     <div class="Polaris-Label"><label id="PolarisTextField2Label" for="PolarisTextField2" class="Polaris-Label__Text">Country/ Regionof origin</label></div>
     </div>
-    <select class="form-control" name="">
+    <select class="form-control" name="residence">
     <option>Country/ Regionof origin</option>
     <option>Country/ Regionof origin</option>
     <option>Country/ Regionof origin</option>
@@ -367,7 +367,7 @@
     <div class="Polaris-TextField">
     <div class="Polaris-TextField__Prefix" id="PolarisTextField2Prefix"><span class="Polaris-Icon Polaris-Icon--colorInkLighter Polaris-Icon--isColored"><svg viewBox="0 0 20 20" class="Polaris-Icon__Svg" focusable="false" aria-hidden="true">
     <path d="M8 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm9.707 4.293l-4.82-4.82A5.968 5.968 0 0 0 14 8 6 6 0 0 0 2 8a6 6 0 0 0 6 6 5.968 5.968 0 0 0 3.473-1.113l4.82 4.82a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414z"></path>
-    </svg></span></div><input name="" id="PolarisTextField2" placeholder="Search by product keyword or HS code" autocomplete="off" class="Polaris-TextField__Input" aria-labelledby="PolarisTextField2Label PolarisTextField2Prefix" aria-invalid="false" aria-autocomplete="list" aria-multiline="false" value="" tabindex="0" aria-controls="Polarispopover2" aria-owns="Polarispopover2" aria-expanded="false">
+    </svg></span></div><input name="hs_code" id="PolarisTextField2" placeholder="Search by product keyword or HS code" autocomplete="off" class="Polaris-TextField__Input" aria-labelledby="PolarisTextField2Label PolarisTextField2Prefix" aria-invalid="false" aria-autocomplete="list" aria-multiline="false" value="" tabindex="0" aria-controls="Polarispopover2" aria-owns="Polarispopover2" aria-expanded="false">
     <div class="Polaris-TextField__Backdrop"></div>
     </div>
     </div>
@@ -387,10 +387,7 @@
 </div>
 @endsection
 @section('foot')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript">
-    function myFunction() {
-      alert("Hello! I am an alert box!"); 
-    }
+<script>
+    
 </script>
 @endsection
