@@ -6,10 +6,13 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function create_product(){
+    public function create_product()
+    {
         return view('admin.product.create_product'); 
     }
-    public function add_product(Request $r){
-        return $r->all(); 
+
+    public function add_product(Request $request)
+    {
+        return $request->all();
     }
 }

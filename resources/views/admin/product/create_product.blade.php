@@ -305,7 +305,7 @@
     <div class="Polaris-DropZone__Container">
     <div class="Polaris-DropZone-FileUpload ">
     <div class="Polaris-Stack Polaris-Stack--vertical">
-    <div class="Polaris-Stack__Item"><?xml version="1.0" encoding="iso-8859-1"?>
+    <div class="Polaris-Stack__Item">
     <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
     <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
