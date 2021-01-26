@@ -17,6 +17,7 @@ Route::get('/','HomeController@index')->name('admin.home');
 
 Route::get('/create_product','ProductController@create_product')->name('admin.invoice.create_product');#Create Products
 Route::post('/add_product','ProductController@add_product')->name('admin.invoice.add_product');#add Products
+Route::post('/add-product-brand','ProductController@add_product_brand')->name('admin.add_product_brand');#Add Product Brand
 
 Route::get('/create_order','OrderController@create_orders')->name('admin.invoice.create_orders');#Create Orders
 Route::post('/add_order','OrderController@add_order')->name('admin.invoice.add_order');#Add Orders

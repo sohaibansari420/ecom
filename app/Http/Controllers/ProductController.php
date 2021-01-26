@@ -15,4 +15,10 @@ class ProductController extends Controller
     {
         return $request->all();
     }
+
+    public function add_product_brand(Request $request){
+        return response()->json([
+            'request'=>$request->all(),
+        ]);
+    }
 }

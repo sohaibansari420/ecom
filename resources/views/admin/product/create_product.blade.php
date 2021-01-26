@@ -222,10 +222,8 @@
     <div class="prdt_item">
     <div class="col-md-6 col-sm-6 col-xs-6"><label>Brand</label></div>
     <div class="col-md-6 col-sm-6 col-xs-6">
-    <select class="form-control" name="brand">
-    <option>Brand</option>
-    <option>Brands</option>
-    <option>Branded</option>
+    <select class="form-control bk-select2" name="brand" id="product_brand">
+        <option value="add_new" onclick="selectBrand()">Add New</option>
     </select> 
     </div> 
     </div>
@@ -454,8 +452,8 @@
     <div class="prdt_item3 prdouct__variants">
     <div class="col-md-6 col-sm-6 col-xs-6"><label>Varinats</label></div>
     <div class="col-md-6 col-sm-6 col-xs-6 prdct_variant">
-    <div class="col-md-6 col-sm-6 col-xs-6 prdct_color"><span>Color Settings</span></div>
-    <div class="col-md-6 col-sm-6 col-xs-6 prdct_size"><span>Size Settings</span></div>
+    <div class="col-md-6 col-sm-6 col-xs-6 prdct_color" onclick="selectColor()"><span>Color Settings</span></div>
+    <div class="col-md-6 col-sm-6 col-xs-6 prdct_size" onclick="selectSize()"><span>Size Settings</span></div>
     </div>
     </div>
     
@@ -575,9 +573,126 @@
     </div>
     </form>
 </div>
+
+<div>
+    <div class="modal fade" id="brand_modal" tabindex="-1"  role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Brand</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form class="kt-form" id="brand_modal_form"  enctype="multipart/form-data">
+                    <div class="container w-100">
+                        <div class="form-group">
+                            <label>Brand:</label>
+                            <input required type="text" class="form-control" name="brand" placeholder="Enter Brand">
+                        </div>
+                        <div class="modal-footer border-top-0 d-flex justify-content-right">
+                            <button class="upload-button btn btn-success add_impound_state">Add Brand</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> 
+</div>
+<div>
+    <div class="modal fade" id="color_modal" tabindex="-1"  role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Brand</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form class="kt-form" id="brand_modal_form"  enctype="multipart/form-data">
+                    <div class="container w-100">
+                        <div class="form-group">
+                            <label>Brand:</label>
+                            <input required type="text" class="form-control" name="brand" placeholder="Enter Brand">
+                        </div>
+                        <div class="modal-footer border-top-0 d-flex justify-content-right">
+                            <button class="upload-button btn btn-success add_impound_state">Add Brand</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> 
+</div>
+<div>
+    <div class="modal fade" id="size_modal" tabindex="-1"  role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Brand</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form class="kt-form" id="brand_modal_form"  enctype="multipart/form-data">
+                    <div class="container w-100">
+                        <div class="form-group">
+                            <label>Brand:</label>
+                            <input required type="text" class="form-control" name="brand" placeholder="Enter Brand">
+                        </div>
+                        <div class="modal-footer border-top-0 d-flex justify-content-right">
+                            <button class="upload-button btn btn-success add_impound_state">Add Brand</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> 
+</div>
+
 @endsection
 @section('foot')
 <script>
+    $(document).ready(function(){
+        $('[name="brand"]').on('change.select2',function(){
+            var _val=$(this).val();
+            if (_val=="add_new") {
+                selectBrand();
+                $('[name="brand"]').val('').trigger('change');
+            }
+        });
+        $('[name="brand"]').val('').trigger('change.select2');
     
+        $('form#brand_modal_form').off('submit').on('submit',function(e){
+        var _self = $(this);
+        _self.find('[type="submit"]').prop('disabled',true);
+        e.preventDefault();
+        var _form = $(this);
+        var url ="{{ url('/add-product-brand') }}";
+        $.ajax({
+            url : url,
+            type : 'POST',
+            data: _form.serializeArray(),
+            success: function(data){
+                $('#brand_modal').modal('hide');
+                console.log(data);
+                _self.find('[type="submit"]').prop('disabled',false);
+            },
+            error: function(error){
+                _self.find('[type="submit"]').prop('disabled',false);
+            }
+        });
+    });
+
+    });
+    function selectBrand(){
+        $('#brand_modal').modal('show');
+    }
+    function selectColor(){
+        $('#color_modal').modal('show');
+    }
+    function selectSize(){
+        $('#size_modal').modal('show');
+    }
 </script>
 @endsection
