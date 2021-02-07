@@ -90,10 +90,12 @@
         color: #a0a1e5;
       padding: 0px;
       font-weight: bold;
+      cursor: pointer;
     }
     .prdct_variant .prdct_size
     {
     text-align: right;
+    cursor: pointer;
     }
     .prdct_hr
     {
@@ -188,6 +190,56 @@
     {
     background: green;
       border-color: green;
+    }
+    .color_model
+    {
+        background-color: #d7dbef;
+    }
+    .color_popoup
+    {
+        display: flex;
+    }
+    .color_popoup .form-control
+    {
+        width: 170px;
+        margin-right: 5px;
+        border: 1px solid #000;
+        font-size: 15px;
+    }
+    .color_popoup .color__add{
+        border: 1px solid #ccc;
+    padding: 0px 15px;
+    color: #000;
+    font-size: 13px;
+    border-radius: 3px;
+    background-color: transparent;
+    }
+    .color_list
+    {
+        border:1px solid #000;
+        overflow-y: scroll;
+        background-color: #fff;
+        min-height: 200px;
+    height: 200px;
+    }
+    .color_list ul
+    {
+        padding:0px;
+        padding: 0px;
+    padding-left: 10px;
+    padding-top: 10px;
+    }
+    .color_list ul li{
+        list-style: none;
+        font-size: 15px;
+    }
+    .color_delete
+    {
+        margin-top: 12px;
+    }
+    .color_delete button:nth-of-type(2){
+        margin-left: 5px;
+
     }
     </style>
 
@@ -577,7 +629,7 @@
 <div>
     <div class="modal fade" id="brand_modal" tabindex="-1"  role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
+            <div class="modal-content color_model">
                 <div class="modal-header border-bottom-0">
                     <h5 class="modal-title" id="exampleModalLabel">Add Brand</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -604,19 +656,32 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header border-bottom-0">
-                    <h5 class="modal-title" id="exampleModalLabel">Add Brand</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Color Setting</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form class="kt-form" id="brand_modal_form"  enctype="multipart/form-data">
+                <form class="kt-form" id="color_modal_form"  enctype="multipart/form-data">
                     <div class="container w-100">
-                        <div class="form-group">
-                            <label>Brand:</label>
-                            <input required type="text" class="form-control" name="brand" placeholder="Enter Brand">
+                        <div class="form-group color_popoup">
+                            <input type="text" class="form-control" name="add_color" autocomplete="off" placeholder="">
+                            <button class="color__add" onclick="change_settings('add','color'); return false;">add color</button>
+                            
                         </div>
-                        <div class="modal-footer border-top-0 d-flex justify-content-right">
-                            <button class="upload-button btn btn-success add_impound_state">Add Brand</button>
+                        <div class="color_list">
+                            <ul>
+                                @foreach ($pro_settings as $color_setting)
+                                    @if ($color_setting->type=="color")
+                                        <li onclick="edit_setting('{{$color_setting->name}}','{{$color_setting->id}}')">{{$color_setting->name}}</li>  
+                                    @endif
+                                @endforeach
+                            </ul>
+                        </div>
+                        <div class="form-group color_popoup color_delete">
+                            <input type="text" class="form-control" name="edit_color" autocomplete="off" placeholder="">
+                            <button class="color__add" onclick="change_settings('edit','color'); return false;">edit</button>
+                            <button class="color__add" onclick="change_settings('delete','color'); return false;">delete</button>
+                            <input type="hidden" name="color_id">
                         </div>
                     </div>
                 </form>
@@ -693,6 +758,57 @@
     }
     function selectSize(){
         $('#size_modal').modal('show');
+    }
+    function change_settings(_setting_condition,type){
+        if (_setting_condition=="add") {
+            var _val=$('#color_modal_form [name="add_color"]').val();
+            var data={
+                condition:_setting_condition, 
+                val:_val,
+                type:type,
+            }
+        }
+        if (_setting_condition=="edit") {
+            var _val=$('#color_modal_form [name="edit_color"]').val();
+            var _id=$('#color_modal_form [name="color_id"]').val(id);
+            var data={
+                condition:_setting_condition, 
+                val:_val,
+                id:_id,
+                type:type,
+            }
+        }
+        if (_setting_condition=="delete") {
+            var data={
+                condition:_setting_condition,
+                type:type,
+            }
+        }
+        
+        var url ="{{ url('/change-product-color-setting') }}";
+        $.ajax({
+            url : url,
+            type : 'POST',
+            data: data,
+            success: function(data){
+                console.log(data);
+                var data=data.setting;
+                if (data!=null) {
+                    if (data.condition=="add") {
+                        var li_html='<li>'+data.name+'</li>';
+                        $('.color_list ul').append(li_html);
+                        $('#color_modal_form [name="add_color"]').val('');   
+                    }
+                }
+            },
+            error: function(error){
+
+            }
+        });
+    }
+    function edit_setting(name,id){
+        $('#color_modal_form [name="edit_color"]').val(name);
+        $('#color_modal_form [name="color_id"]').val(id);
     }
 </script>
 @endsection
