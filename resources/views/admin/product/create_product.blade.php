@@ -276,6 +276,9 @@
     <div class="col-md-6 col-sm-6 col-xs-6">
     <select class="form-control bk-select2" name="brand" id="product_brand">
         <option value="add_new" onclick="selectBrand()">Add New</option>
+        @foreach ($brands as $brand)
+            <option value="{{$brand->id}}">{{$brand->name}}</option>
+        @endforeach
     </select> 
     </div> 
     </div>
@@ -741,6 +744,8 @@
             success: function(data){
                 $('#brand_modal').modal('hide');
                 console.log(data);
+                var brand=data.request.brand;
+                $('[name="brand"]').val(brand).trigger('change.select2');
                 _self.find('[type="submit"]').prop('disabled',false);
             },
             error: function(error){
