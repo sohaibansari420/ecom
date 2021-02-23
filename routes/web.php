@@ -25,3 +25,4 @@ Route::post('/add_order','OrderController@add_order')->name('admin.invoice.add_o
 Route::get('/view_order','OrderController@view_order')->name('admin.invoice.view_order');#View Orders
 
 Route::get('/account-creation','AccountController@add_account_creation')->name('admin.account_creation');#add Account Cretion
+Route::get('/save-account-creation','AccountController@save_account_creation')->name('admin.save_account_creation');#save Account Cretion

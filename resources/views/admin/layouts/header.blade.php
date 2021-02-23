@@ -10,12 +10,13 @@
 <!-- end:: Header Menu -->
 
 <!-- begin:: Header Topbar -->
-<div class="kt-header__topbar">
+<div class="kt-header__topbar col-md-12">
 
     <!--begin: Search -->
-    <div class="kt-header__topbar-item kt-header__topbar-item--search dropdown">
-        <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="10px,0px">
-            <span class="kt-header__topbar-icon"><i class="flaticon2-search-1"></i></span>
+    <div class="kt-header__topbar-item kt-header__topbar-item--search dropdown col-md-6 head_search_top">
+        <div class="form-group has-search head_parent">
+            <span class="fa fa-search form-control-feedback"></span>
+            <input type="text" class="form-control" placeholder="Search">
         </div>
         <div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-top-unround dropdown-menu-anim dropdown-menu-lg">
             <div class="kt-quick-search kt-quick-search--dropdown kt-quick-search--result-compact" id="kt_quick_search_dropdown">
@@ -35,7 +36,7 @@
     <!--end: Search -->
 
     <!--begin: User Bar -->
-    <div class="kt-header__topbar-item kt-header__topbar-item--user">
+    <div class="kt-header__topbar-item kt-header__topbar-item--user col-md-6 head_admin_name">
         <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="0px,0px">
 
             <!--use "kt-rounded" class for rounded avatar style-->

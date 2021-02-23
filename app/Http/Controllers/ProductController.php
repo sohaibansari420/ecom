@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Product_setting;
 use App\Brand;
 use App\Product;
+use App\Product_invertory;
 
 class ProductController extends Controller
 {
@@ -26,6 +27,20 @@ class ProductController extends Controller
         $product->unit=$request->unit;
         $product->company_adress_id=$request->company_adress_id;
         // $product->save();
+
+        $pro_inventory=new Product_invertory;
+        $pro_inventory->product_id=$product->id;
+        $pro_inventory->sku=$request->sku;
+        $pro_inventory->barcode=$request->barcode;
+        $pro_inventory->dimensions=$request->dimension;
+        $pro_inventory->weight=$request->weight;
+        $pro_inventory->price=$request->price;
+        $pro_inventory->promotion_price=$request->company_adress_id;
+        $pro_inventory->cost=$request->prmotion_price;
+        $pro_inventory->inventory=$request->inventory_available;
+        $pro_inventory->country_id=$request->country;
+        // $pro_inventory->save();
+
         return $request->all();
     }
 
@@ -39,6 +54,7 @@ class ProductController extends Controller
         ]);
     }
     public function product_color_setting(Request $r){
+        
         if ($r->condition=="add") {
             $setting_add=new Product_setting;
             
@@ -50,6 +66,8 @@ class ProductController extends Controller
                 'request'=>$r->all(),
                 'condition'=>'add',
                 'setting'=>$setting_add,
+                'p_set'=>Product_setting::all(),
+                'type'=>$r->type,
             ]);
         }
         if ($r->condition=="edit") {
@@ -61,15 +79,22 @@ class ProductController extends Controller
             return response()->json([
                 'request'=>$r->all(),
                 'condition'=>'edit',
-                'setting'=>'setting',
+                'setting'=>$setting_edit,
+                'p_set'=>Product_setting::all(),
+                'type'=>$r->type,
             ]);
         }
         if ($r->condition=="delete") {
+            $setting_delete=Product_setting::find($r->id);
+            $setting_delete->delete();
             return response()->json([
                 'request'=>$r->all(),
                 'condition'=>'delete',
+                'p_set'=>Product_setting::all(),
+                'type'=>$r->type,
             ]);
         }
+        
         return response()->json([
             'request'=>$r->all(),
         ]);

@@ -36,57 +36,93 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css" rel="stylesheet">
 
 <style>
-  .select2-container--default .select2-selection--single .select2-selection__arrow{height: 1px!important;}
+.select2-container--default .select2-selection--single .select2-selection__arrow{height: 1px!important;}
 
-  select[readonly].select2-hidden-accessible + .select2-container {
-							pointer-events: none;
-							touch-action: none;
-						}
+select[readonly].select2-hidden-accessible + .select2-container {
+						pointer-events: none;
+						touch-action: none;
+					}
 
-						select[readonly].select2-hidden-accessible + .select2-container .select2-selection {
-							background: #eee;
-							box-shadow: none;
-						}
+					select[readonly].select2-hidden-accessible + .select2-container .select2-selection {
+						background: #eee;
+						box-shadow: none;
+					}
 
-						select[readonly].select2-hidden-accessible + .select2-container .select2-selection__arrow, select[readonly].select2-hidden-accessible + .select2-container .select2-selection__clear {
-							display: none;
-						}
-						._referenceloancontent{
-							border: 1px solid #eee;
-							margin-top: 4px;
-							padding: 8px 7px;
-							border-radius: 3px;
-						}
-						._referenceloancontent ._referenceloancb {
-							padding-left: 24px;
-						}
-						._referenceloancontent ._referenceloancb span{
-							top: -2px;
-						}
-						.lock_content {
-							pointer-events:none;
-							-webkit-font-smoothing: antialiased;
-							display: inline-block;
-							font-weight:900;
-							color:#535353;
-							position:relative;
-						}
+					select[readonly].select2-hidden-accessible + .select2-container .select2-selection__arrow, select[readonly].select2-hidden-accessible + .select2-container .select2-selection__clear {
+						display: none;
+					}
+					._referenceloancontent{
+						border: 1px solid #eee;
+						margin-top: 4px;
+						padding: 8px 7px;
+						border-radius: 3px;
+					}
+					._referenceloancontent ._referenceloancb {
+						padding-left: 24px;
+					}
+					._referenceloancontent ._referenceloancb span{
+						top: -2px;
+					}
+					.lock_content {
+						pointer-events:none;
+						-webkit-font-smoothing: antialiased;
+						display: inline-block;
+						font-weight:900;
+						color:#535353;
+						position:relative;
+					}
 
-						.lock_content:before{
-							background-image: url('{{asset('dashboard/assets/media/icons/svg/Lock.svg')}}');
-							background-size: 70% 70%;
-							background-repeat: no-repeat;
-							background-position: center center;
-							background-color: rgba(255,255,255,.9);
-							content: "";
-							position: absolute;
-							top: 0;
-							width: 100%;
-							height: 100%;
-							left: 0;
-							display: flex;
-							justify-content: center;
-							align-items: center;
-							font-size: 50px;
-						}
+					.lock_content:before{
+						background-image: url('{{asset('dashboard/assets/media/icons/svg/Lock.svg')}}');
+						background-size: 70% 70%;
+						background-repeat: no-repeat;
+						background-position: center center;
+						background-color: rgba(255,255,255,.9);
+						content: "";
+						position: absolute;
+						top: 0;
+						width: 100%;
+						height: 100%;
+						left: 0;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						font-size: 50px;
+					}
+					/* header styling start here */
+					.head_admin_name .kt-header__topbar-wrapper
+					{
+						width: 100%;
+						justify-content: flex-end;
+					}
+					.head_search_top
+					{
+						align-items: center !important;
+						justify-content: center;
+					}
+					.head_search_top .head_parent
+					{
+						width: 75%;
+					}
+					.head_search_top .head_parent
+					{
+						position: relative;
+					}
+.head_search_top .has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.head_search_top .has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+	left: 0;
+    top: 7px;
+}
 </style>

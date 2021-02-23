@@ -26,7 +26,9 @@
                             <li class="kt-menu__item" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">Invoice</span></span></li>
                             <li class="kt-menu__item" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">Customers</span></span></li>
                             <li class="kt-menu__item" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">All Sales</span></span></li>
-                            <li class="kt-menu__item" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">Product and Services</span></span></li>
+                            <li class="kt-menu__item" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">
+                               <a href="{{ route('admin.invoice.create_product') }}"> Product and Services </a>
+                            </span></span></li>
                             <li class="kt-menu__item" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">Payment</span></span></li>
                             <li class="kt-menu__item" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">Werehouse</span></span></li>
 

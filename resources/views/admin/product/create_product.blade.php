@@ -7,6 +7,13 @@
     {
     background-color: #f4f4f4;
     }
+    .kt-grid.kt-grid--ver
+    {
+        padding-top: 0px !important;
+    }
+    label {
+    font-size: 16px;
+}
     .proudct_heading
     {
     font-size: 20px;
@@ -214,13 +221,13 @@
     border-radius: 3px;
     background-color: transparent;
     }
-    .color_list
+    .color_list 
     {
         border:1px solid #000;
         overflow-y: scroll;
         background-color: #fff;
         min-height: 200px;
-    height: 200px;
+        height: 200px;
     }
     .color_list ul
     {
@@ -240,6 +247,9 @@
     .color_delete button:nth-of-type(2){
         margin-left: 5px;
 
+    }
+    .color_list ul{ 
+        cursor: pointer; 
     }
     </style>
 
@@ -675,7 +685,7 @@
                             <ul>
                                 @foreach ($pro_settings as $color_setting)
                                     @if ($color_setting->type=="color")
-                                        <li onclick="edit_setting('{{$color_setting->name}}','{{$color_setting->id}}')">{{$color_setting->name}}</li>  
+                                        <li onclick="edit_setting('{{$color_setting->name}}','{{$color_setting->id}}','color')">{{$color_setting->name}}</li>  
                                     @endif
                                 @endforeach
                             </ul>
@@ -697,19 +707,32 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header border-bottom-0">
-                    <h5 class="modal-title" id="exampleModalLabel">Add Brand</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Size Setting</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form class="kt-form" id="brand_modal_form"  enctype="multipart/form-data">
+                <form class="kt-form" id="size_modal_form"  enctype="multipart/form-data">
                     <div class="container w-100">
-                        <div class="form-group">
-                            <label>Brand:</label>
-                            <input required type="text" class="form-control" name="brand" placeholder="Enter Brand">
+                        <div class="form-group color_popoup">
+                            <input type="text" class="form-control" name="add_size" autocomplete="off" placeholder="">
+                            <button class="color__add" onclick="change_settings('add','size'); return false;">add size</button>
+                            
+                        </div> 
+                        <div class="color_list"> 
+                            <ul>
+                                @foreach ($pro_settings as $size_setting)
+                                    @if ($size_setting->type=="size")
+                                        <li onclick="edit_setting('{{$size_setting->name}}','{{$size_setting->id}}','size')">{{$size_setting->name}}</li>  
+                                    @endif
+                                @endforeach
+                            </ul>
                         </div>
-                        <div class="modal-footer border-top-0 d-flex justify-content-right">
-                            <button class="upload-button btn btn-success add_impound_state">Add Brand</button>
+                        <div class="form-group color_popoup color_delete">
+                            <input type="text" class="form-control" name="edit_size" autocomplete="off" placeholder="">
+                            <button class="color__add" onclick="change_settings('edit','size'); return false;">edit</button>
+                            <button class="color__add" onclick="change_settings('delete','size'); return false;">delete</button>
+                            <input type="hidden" name="size_id">
                         </div>
                     </div>
                 </form>
@@ -765,30 +788,63 @@
         $('#size_modal').modal('show');
     }
     function change_settings(_setting_condition,type){
-        if (_setting_condition=="add") {
-            var _val=$('#color_modal_form [name="add_color"]').val();
-            var data={
-                condition:_setting_condition, 
-                val:_val,
-                type:type,
+        if (type=="color") {
+            if (_setting_condition=="add") {
+                var _val=$('#color_modal_form [name="add_color"]').val();
+                var data={
+                    condition:_setting_condition, 
+                    val:_val,
+                    type:type,
+                }
+            }
+            if (_setting_condition=="edit") {
+                var _val=$('#color_modal_form [name="edit_color"]').val();
+                var _id=$('#color_modal_form [name="color_id"]').val();
+                var data={
+                    condition:_setting_condition, 
+                    val:_val,
+                    id:_id,
+                    type:type,
+                }
+            }
+            if (_setting_condition=="delete") {
+                var _id=$('#color_modal_form [name="color_id"]').val();
+                var data={
+                    condition:_setting_condition,
+                    type:type,
+                    id:_id,
+                }
             }
         }
-        if (_setting_condition=="edit") {
-            var _val=$('#color_modal_form [name="edit_color"]').val();
-            var _id=$('#color_modal_form [name="color_id"]').val(id);
-            var data={
-                condition:_setting_condition, 
-                val:_val,
-                id:_id,
-                type:type,
+        if (type=="size") {
+            if (_setting_condition=="add") {
+                var _val=$('#size_modal_form [name="add_size"]').val();
+                var data={
+                    condition:_setting_condition, 
+                    val:_val,
+                    type:type,
+                }
+            }
+            if (_setting_condition=="edit") {
+                var _val=$('#size_modal_form [name="edit_size"]').val();
+                var _id=$('#size_modal_form [name="size_id"]').val();
+                var data={
+                    condition:_setting_condition, 
+                    val:_val,
+                    id:_id,
+                    type:type,
+                }
+            }
+            if (_setting_condition=="delete") {
+                var _id=$('#size_modal_form [name="size_id"]').val();
+                var data={
+                    condition:_setting_condition,
+                    type:type,
+                    id:_id,
+                }
             }
         }
-        if (_setting_condition=="delete") {
-            var data={
-                condition:_setting_condition,
-                type:type,
-            }
-        }
+        
         
         var url ="{{ url('/change-product-color-setting') }}";
         $.ajax({
@@ -797,23 +853,55 @@
             data: data,
             success: function(data){
                 console.log(data);
-                var data=data.setting;
-                if (data!=null) {
-                    if (data.condition=="add") {
-                        var li_html='<li>'+data.name+'</li>';
-                        $('.color_list ul').append(li_html);
-                        $('#color_modal_form [name="add_color"]').val('');   
+                
+                var type=data.type;
+                if (type=="color") {
+                    $('#color_modal_form .color_list ul').html('');
+                    $('#color_modal_form [name="add_color"]').val('');
+                    $('#color_modal_form [name="edit_color"]').val('');
+                    var product_setting=data.p_set;
+                    var li_html='';
+                    if (product_setting!=null) {
+                        product_setting.forEach(function(i,j){
+                            if (i.type=="color") {
+                                li_html+='<li onclick="edit_setting(\''+i.name+'\',\''+i.id+'\',\''+i.type+'\')">'+i.name+'</li>';
+                            }
+                        });
+                        $('#color_modal_form .color_list ul').append(li_html);
                     }
                 }
+                if (type=="size") {
+                    $('#size_modal_form .color_list ul').html('');
+                    $('#size_modal_form [name="add_size"]').val('');
+                    $('#size_modal_form [name="edit_size"]').val('');
+                    var product_setting=data.p_set;
+                    var li_html='';
+                    if (product_setting!=null) {
+                        product_setting.forEach(function(i,j){
+                            if (i.type=="size") {
+                                li_html+='<li onclick="edit_setting(\''+i.name+'\',\''+i.id+'\',\''+i.type+'\')">'+i.name+'</li>';
+                            }
+                        });
+                        $('#size_modal_form .color_list ul').append(li_html);
+                    }
+                }
+                
             },
             error: function(error){
 
             }
         });
     }
-    function edit_setting(name,id){
-        $('#color_modal_form [name="edit_color"]').val(name);
-        $('#color_modal_form [name="color_id"]').val(id);
+    function edit_setting(name,id,type){
+        if (type=="color") {
+            $('#color_modal_form [name="edit_color"]').val(name);
+            $('#color_modal_form [name="color_id"]').val(id);
+        }
+        if (type=="size") {
+            $('#size_modal_form [name="edit_size"]').val(name);
+            $('#size_modal_form [name="size_id"]').val(id);
+        }
+        
     }
 </script>
 @endsection
