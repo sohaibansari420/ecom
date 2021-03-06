@@ -202,7 +202,7 @@
                 <div class="col-md-4 col-lg-4">
                     <h4>Document Upload</h4>
                 </div>
-                <div class="col-md-8 col-lg-8">
+                <div class="col-md-8 col-lg-8 file_upload">
                     <div class="custom-file custom_upper_file">
                         <input type="file" class="custom-file-input" id="customFile">
                         <label class="custom-file-label" for="customFile">Upload File</label>
