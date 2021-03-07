@@ -152,25 +152,19 @@
 
                     <div class="col-md-6 col-lg-6">
                         <div class="form-group">
-                            <select class="form-control select_input" id="exampleFormControlSelect1">
-                                <option>Country</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                            <select class="form-control select_input select2-input" data-ccs-linker="selector1" data-ccs-type="country">
+                                <option value="">Select an option</option>
+                                @foreach ($countries as $country)
+                                    <option value="{{$country->id}}">{{$country->name}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
-                            <select class="form-control select_input" id="exampleFormControlSelect1">
-                                <option>City</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                            <select class="form-control select_input select2-input" data-ccs-linker="selector1" data-ccs-type="city">
                             </select>
                         </div>
                         <div class="form-group">
-                            <select class="form-control select_input" id="exampleFormControlSelect1" name="prefer_courier">
+                            <select class="form-control select_input" name="prefer_courier">
                                 <option value="DHL">DHL</option>
                                 <option value="Fedex">Fedex</option>
                                 <option value="UPS">UPS</option>
@@ -180,12 +174,7 @@
 
                     <div class="col-md-6 col-lg-6">
                         <div class="form-group">
-                            <select class="form-control select_input" id="exampleFormControlSelect1">
-                                <option>States</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                            <select class="form-control select_input select2-input" data-ccs-linker="selector1" data-ccs-type="state">
                             </select>
                         </div>
                         <div class="form-group">
@@ -366,7 +355,153 @@
         </div>
     </form>
 </div>
+
 @endsection
 @section('foot')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.9/css/select2.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.9/js/select2.full.min.js"></script>
+
+<script type="text/javascript">
+    var COUNTRIES = {!! $countries !!};
+    var get_cities = function(according_to, id){
+            return new Promise(function(resolve,reject){
+                $.ajax({
+                    url : "{{url('/get-cities-data/city')}}/"+according_to+'/'+id,
+                    type : 'GET',
+                    dataType:'json',
+                    success: function(response){
+                        /* if cities found, append the cities */
+                        resolve(response);
+                        
+                    },
+                    error: function(error){
+                        resolve(reject);
+                    }       
+                });
+            });
+        }
+    $(function(){
+
+        /* initiate select2 */
+        $('.select2-input').each(function(){
+            $(this).select2({
+                width:'100%',
+                placeholder: 'Select an option'
+            });
+        });
+        
+        $('[data-ccs-type]').on('change', function(){
+            /* check the type */
+            var type = $(this).attr('data-ccs-type');
+            var self = this;
+            switch (type) {
+                case "country":
+                    /* we need to change the states based in current country */
+                    var country_id = this.value;
+                    if(!country_id || country_id=='')return;
+                    var linker = this.getAttribute('data-ccs-linker');
+
+                    /* find the state elem through linker */
+                    var stateElem = $('[data-ccs-linker="'+linker+'"][data-ccs-type=state]');
+
+                    /* find the city elem through linker */
+                    var cityElem = $('[data-ccs-linker="'+linker+'"][data-ccs-type=city]');
+                    if(stateElem.length){
+                        /* update the data */
+                        console.log('stateElem', stateElem);
+
+                        var country = COUNTRIES.find(function(x){return x.id==country_id});
+                        if(typeof country !== "undefined"){
+                            /* fetch the states */
+                            var states = country.states;
+                            var html = '<option></option>';
+                            states.forEach(function(state, i) {
+                                html+='<option value="'+state.id+'">'+state.name+'</option>';
+                            });
+                            /* check if no data found we need to append empty msg */
+                            if(states.length==0){
+                                html='';
+                                stateElem.html(html).val(null).trigger('change');
+
+                                /* find the cities according to country */
+                                get_cities('country', country_id)
+                                .then(function(cities){
+                                    cityElem.prop('disabled', false);
+                                    console.log("Cities: ", cities);
+
+                                    /* append the cities */
+                                    if(cities.length){
+                                        var html = '';
+                                        cities.forEach(function(city, i) {
+                                            html+='<option value="'+city.id+'">'+city.name+'</option>';
+                                        });
+                                        /* check if no data found we need to append empty msg */
+                                        if(cities.length==0)html='';
+
+                                        /* append the html */
+                                        cityElem.html(html).val(null).trigger('change');
+                                    }
+                                })
+                                .catch(function(err){
+                                    cityElem.prop('disabled', false);
+                                    console.error("Error: ",err);
+                                });
+                            }
+                            else{
+                                /* append the html */
+                                stateElem.html(html).val(null).trigger('change');
+
+                                /* clear the cities */
+
+                                
+                                cityElem.html('').trigger('change.select2');
+                            }
+
+                            
+                        }
+                    }
+                    break;
+                case "state":
+                    /* we need to send ajax and get cities according to state */
+                    var state_id = this.value;
+                    if(!state_id || state_id=='')return;
+                    var linker = this.getAttribute('data-ccs-linker');
+
+                    /* find the city elem through linker */
+                    var cityElem = $('[data-ccs-linker="'+linker+'"][data-ccs-type=city]');
+                    cityElem.html('<option value="">Please wait...</option>').prop('disabled', true);
+
+                    get_cities('state', state_id)
+                    .then(function(cities){
+                        cityElem.prop('disabled', false);
+                        console.log("Cities: ", cities);
+
+                        /* append the cities */
+                        if(cities.length){
+                            var html = '';
+                            cities.forEach(function(city, i) {
+                                html+='<option value="'+city.id+'">'+city.name+'</option>';
+                            });
+                            /* check if no data found we need to append empty msg */
+                            if(cities.length==0)html='<option value="">No city found</option>';
+
+                            /* append the html */
+                            cityElem.html(html).val(null).trigger('change');
+                        }
+                    })
+                    .catch(function(err){
+                        cityElem.prop('disabled', false);
+                        console.error("Error: ",err);
+                    });
+                    break;
+            
+                default:
+                    break;
+            }
+        });
+        console.log('-----------------2');
+    });
+</script>
+
 
 @endsection

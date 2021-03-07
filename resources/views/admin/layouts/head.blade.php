@@ -36,7 +36,32 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css" rel="stylesheet">
 
 <style>
-.select2-container--default .select2-selection--single .select2-selection__arrow{height: 1px!important;}
+
+	/* Chrome, Safari, Edge, Opera */
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+	/* Firefox */
+	input[type=number] {
+		-moz-appearance: textfield;
+	}
+
+	.select2-selection__rendered {
+		line-height: 32px !important;
+	}
+
+	.select2-selection {
+		height: 34px !important;
+	}
+	.select2-selection__arrow {
+		height: 34px !important;
+	}
+	.select2-container *:focus {
+		outline: none;
+	}
 
 select[readonly].select2-hidden-accessible + .select2-container {
 						pointer-events: none;

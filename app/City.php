@@ -29,4 +29,9 @@ class City extends Authenticatable
         'flag',
         'wikiDataId'
     ];
+
+    public function state()
+    {
+        return $this->belongsTo('App\State', 'state_id');
+    }
 }

@@ -14,10 +14,47 @@ use App\State;
 class AccountController extends Controller
 {
     public function add_account_creation(){
-        $country=Country::all();
-        $city=City::all();
-        $state=State::all();
-        return view('admin.Accounts.account_creation',[$country,$city,$state]);
+        $countries=Country::with(['states' => function($q){
+            $q->select(['id', 'country_id', 'name']);
+        }])
+        ->select(['id', 'name'])
+        ->get();
+        return view('admin.Accounts.account_creation', compact('countries'));
+    }
+    public function get_cities_data($of, $according_to, $id)
+    {
+        switch ($of) {
+            case 'city':
+                if($according_to=='state'){
+                    # Fetch all citites according to $id state
+                    $state = State::find($id);
+                    if(!isset($state)){
+                        # Seems no data found, throw exception
+                        abort(505, "No state found against id ".$id);
+                    }
+
+                    #find cities of this state
+                    $cities = City::where('state_id', $id)->select(['id', 'state_id', 'country_id', 'name'])->get();
+                    return $cities;
+                }
+                else if($according_to=='country'){
+                    # Fetch all cities according to $id country
+                    $country = Country::find($id);
+                    if(!isset($country)){
+                        # Seems no data found, throw exception
+                        abort(505, "No country found against id ".$id);
+                    }
+
+                    #find cities of this country
+                    $cities = City::where('country_id', $id)->select(['id', 'state_id', 'country_id', 'name'])->get();
+                    return $cities;
+                }
+                break;
+            
+            default:
+                # code...
+                break;
+        }
     }
     public function save_account_creation(Request $r){
         $ci=new Company_information;

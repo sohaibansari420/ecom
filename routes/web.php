@@ -26,3 +26,4 @@ Route::get('/view_order','OrderController@view_order')->name('admin.invoice.view
 
 Route::get('/account-creation','AccountController@add_account_creation')->name('admin.account_creation');#add Account Cretion
 Route::post('/save-account-creation','AccountController@save_account_creation')->name('admin.save_account_creation');#save Account Cretion
+Route::get('/get-cities-data/{of}/{according_to}/{id}','AccountController@get_cities_data')->name('admin.get_cities_data');#add Account Cretion

@@ -19,4 +19,14 @@ class State extends Authenticatable
         'flag',
         'wikiDataId'
     ];
+
+    public function country()
+    {
+        return $this->belongsTo('App\Country', 'country_id');
+    }
+
+    public function cities()
+    {
+        return $this->hasMany('App\City', 'state_id');
+    }
 }

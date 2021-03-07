@@ -30,11 +30,9 @@
         }
     };
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="assets/plugins/global/plugins.bundle.js" type="text/javascript"></script>
 <script src="assets/js/scripts.bundle.js" type="text/javascript"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://unpkg.com/popper.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 <script src="{{ asset('/assets/select2/dist/js/select2.full.js') }}" type="text/javascript"></script>
